@@ -14,17 +14,17 @@ resources:
       buildNumber: 1          
 pipelines:  
   - name: maven_pipeline
-  steps:
-  - shell:
-      script: "echo Build Number: $BUILD_NUMBER"
-  - maven:
+    steps:
+      - shell:
+        script: "echo Build Number: $BUILD_NUMBER"
+      - maven:
       goals: clean install
-      pom-file: "employees-app/pom.xml"
-  after:
-  - artifacts:
-      include: "employees-app/target/*"
-  settings:
-    - discard-old:
+        pom-file: "pom.xml"
+    after:
+      - artifacts:
+        include: "employees-app/target/*"
+    settings:
+      - discard-old:
         days-to-keep-build: 5
         builds-to-keep: 10
         days-to-keep-artifacts: 5
