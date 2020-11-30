@@ -1,12 +1,12 @@
 resources:
-  - name: myGitRepo
+  - name: myGitRepos
     type: GitRepo
     configuration:
       gitProvider: my_github
       path: sangangu/maven-project
       branches:
         include: master
-  - name: myBuildInfo
+  - name: myBuildInfos
     type: BuildInfo
     configuration:
       sourceArtifactory: My_Own
@@ -27,7 +27,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: myGitRepo
+            - name: myGitRepos
           integrations:
             - name: My_Own 
           runtime:
