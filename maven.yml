@@ -12,20 +12,33 @@ resources:
       sourceArtifactory: My_Own
       buildName: SampleApp
       buildNumber: 1          
-pipelines:  
-  - name: maven_pipeline
+pipelines:
+  - name: demo_application
+    configuration:
+      environmentVariables:
+        readOnly:
+          JFROG_CLI_BUILD_NAME: backend_build
     steps:
-      - shell:
-        script: "echo Build Number: $BUILD_NUMBER"
-      - maven:
-        goals: clean install
-        pom-file: "pom.xml"
-    after:
-      - artifacts:
-        include: "employees-app/target/*"
-    settings:
-      - discard-old:
-        days-to-keep-build: 5
-        builds-to-keep: 10
-        days-to-keep-artifacts: 5
-        artifacts-to-keep: 10
+      - name: bld_backend
+        type: MvnBuild
+        configuration:
+          sourceLocation: .
+          mvnCommand: clean install -ntp
+          configFileLocation: .
+          configFileName: mvn-art-config
+          inputResources:
+            - name: myGitrepo
+          integrations:
+            - name: My_Own
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - "11"
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
+
