@@ -19,7 +19,7 @@ pipelines:
         readOnly:
           JFROG_CLI_BUILD_NAME: Maven_Build
     steps:
-      - name: bld_backend
+      - name: Mvn-Build
         type: MvnBuild
         configuration:
           sourceLocation: .
