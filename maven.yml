@@ -27,9 +27,9 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: santosh_mvn
+            - name: myGitRepo
           integrations:
-            - name: myArtifactory 
+            - name: myBuildInfo 
           runtime:
             type: image
             image:
