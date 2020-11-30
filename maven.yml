@@ -26,10 +26,6 @@ pipelines:
           mvnCommand: clean install -ntp
           configFileLocation: .
           configFileName: mvn-art-config
-          inputResources:
-            - name: myGitrepo
-          integrations:
-            - name: My_Own
           runtime:
             type: image
             image:
