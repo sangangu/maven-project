@@ -18,8 +18,8 @@ pipelines:
       - shell:
         script: "echo Build Number: $BUILD_NUMBER"
       - maven:
-      goals: clean install
-        pom-file: "pom.xml"
+        goals: clean install
+          pom-file: "pom.xml"
     after:
       - artifacts:
         include: "employees-app/target/*"
