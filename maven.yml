@@ -27,7 +27,7 @@ pipelines:
           configFileLocation: .
           configFileName: mvn-art-config
           inputResources:
-            - name: be_gitRepo
+            - name: santosh_mvn
           integrations:
             - name: myArtifactory 
           runtime:
