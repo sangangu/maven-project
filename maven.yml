@@ -29,7 +29,7 @@ pipelines:
           inputResources:
             - name: myGitRepo
           integrations:
-            - name: myBuildInfo 
+            - name: My_Own 
           runtime:
             type: image
             image:
