@@ -1,10 +1,19 @@
-job:
-  name: MyFirstYAMLJob
-  vm-template: Basic Build VM Template
-  git:
-  - url: "https://mydevcsinstance-mydomain.developer.ocp.oraclecloud.com/mydevcsinstance-mydomain/s/mydevcsinstance-mydomain_my-project_902/scm/employee.git"
-    branch: master
-    repo-name: origin
+resources:
+  - name: myGitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: my_github
+      path: sangangu/maven-project
+      branches:
+        include: master
+  - name: myBuildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: My_Own
+      buildName: SampleApp
+      buildNumber: 1          
+pipelines:  
+  - name: maven_pipeline
   steps:
   - shell:
       script: "echo Build Number: $BUILD_NUMBER"
