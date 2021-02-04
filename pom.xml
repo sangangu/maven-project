@@ -32,8 +32,8 @@
         </configuration>
       </plugin>
       
-      <plugin>  <!-- Create sources.jar -->
-            <groupId>org.apache.maven.plugins</groupId>
+     <!-- <plugin>  <!-- Create sources.jar -->
+           <!-- <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <executions>
                     <execution>
@@ -43,7 +43,7 @@
                         </goals>
                     </execution>
                 </executions>
-      </plugin>
+      </plugin>-->
             
       <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
